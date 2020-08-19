@@ -1,4 +1,4 @@
-name: Pull Request
+name: PRQ
 on: pull_request
 jobs:
   build:

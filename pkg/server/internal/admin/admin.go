@@ -8,5 +8,5 @@ import (
 
 // Init initialize admin routes
 func Init() {
-	http.HandleFunc("/admin", home.Controller)
+	http.HandleFunc("/admin", home.Handler)
 }

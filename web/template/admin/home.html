@@ -1,3 +1,19 @@
 {{- define "content" -}}
-Hello World!!
+<div>
+    <table class="book-table">
+        <caption>List of Books</caption>
+        <tbody>
+            <tr>
+                <th class="book-table__content">Name</th>
+                <th class="book-table__content">Author</th>
+            </tr>
+            {{range .Books}}
+            <tr>
+                <td class="book-table__content">{{.Title}}</th>
+                <td class="book-table__content">{{.Author}}</th>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
 {{- end -}}
