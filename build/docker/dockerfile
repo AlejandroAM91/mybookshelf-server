@@ -1,0 +1,15 @@
+FROM golang:alpine3.12 AS build
+
+WORKDIR /home/app
+
+COPY . .
+
+RUN go build ./cmd/mybookshelf-server.go 
+
+FROM alpine:3.12
+
+EXPOSE 80
+
+COPY --from=build /home/app/mybookshelf-server /usr/local/bin
+
+CMD mybookshelf-server
