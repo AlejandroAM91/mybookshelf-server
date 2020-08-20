@@ -13,12 +13,13 @@ const (
 	content = "web/template/admin/home.html"
 )
 
-type vm struct {
+type model struct {
 	Books []dto.Book
 }
 
 // Handler manages home page calls
-func Handler(w http.ResponseWriter, req *http.Request) {
-	books := dao.BookGetAll()
-	view.RenderView(w, title, content, vm{Books: books})
+func Handler(writer http.ResponseWriter, req *http.Request) {
+	model := model{Books: dao.BookGetAll()}
+	view := view.CreateView(title, content)
+	view.Render(writer, model)
 }

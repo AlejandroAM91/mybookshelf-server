@@ -9,10 +9,10 @@
                 border: 1px solid black;
             }
         </style>
-        <title>MyBookShelf - {{.Title}}</title>
+        <title>MyBookShelf - {{.Layout.Title}}</title>
     </head>
     <body>
-        <h1>{{.Title}}</h1>
-        {{- template "content" .Data -}}
+        <h1>{{.Layout.Title}}</h1>
+        {{- template "content" .Content -}}
     </body>
 </html>
