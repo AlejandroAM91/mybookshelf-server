@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            .book-table {
-                border-collapse: collapse;
-            }
-            .book-table__content {
-                border: 1px solid black;
-            }
-        </style>
+        {{range .Assets.CSS}}
+        <link rel="stylesheet" type="text/css" href="{{.}}">
+        {{end}}
         <title>MyBookShelf - {{.Layout.Title}}</title>
     </head>
     <body>

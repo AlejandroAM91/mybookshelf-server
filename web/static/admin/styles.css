@@ -1,0 +1,7 @@
+.admin__booklist {
+    border-collapse: collapse;
+}
+
+.admin__booklist-content {
+    border: 1px solid black;
+}

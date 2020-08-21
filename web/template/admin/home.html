@@ -1,16 +1,16 @@
 {{- define "content" -}}
 <div>
-    <table class="book-table">
+    <table class="admin__booklist">
         <caption>List of Books</caption>
         <tbody>
             <tr>
-                <th class="book-table__content">Name</th>
-                <th class="book-table__content">Author</th>
+                <th class="admin__booklist-content">Name</th>
+                <th class="admin__booklist-content">Author</th>
             </tr>
             {{range .Books}}
             <tr>
-                <td class="book-table__content">{{.Title}}</th>
-                <td class="book-table__content">{{.Author}}</th>
+                <td class="admin__booklist-content">{{.Title}}</th>
+                <td class="admin__booklist-content">{{.Author}}</th>
             </tr>
             {{end}}
         </tbody>
