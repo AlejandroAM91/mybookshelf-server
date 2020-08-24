@@ -1,5 +1,14 @@
 {{- define "content" -}}
 <div>
+    <form method="POST" action="admin/book">
+        <label>Title</label>
+        <input type="text" name="title">
+        <label>Author</label>
+        <input type="text" name="author">
+        <input type="submit">
+    </form>
+</div>
+<div>
     <table class="admin__booklist">
         <caption>List of Books</caption>
         <tbody>

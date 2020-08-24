@@ -19,9 +19,9 @@ type model struct {
 }
 
 // Handler manages home page calls
-func Handler(writer http.ResponseWriter, req *http.Request) {
-	model := model{Books: dao.BookGetAll()}
+func Handler(w http.ResponseWriter, r *http.Request) {
+	model := model{Books: dao.GetAllBooks()}
 	view := view.CreateView(title, content)
 	view.AddCSS(shared.AssetsPath + "styles.css")
-	view.Render(writer, model)
+	view.Render(w, model)
 }

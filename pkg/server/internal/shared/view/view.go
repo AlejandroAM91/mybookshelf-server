@@ -58,7 +58,7 @@ func (view *View) AddCSS(path string) {
 }
 
 // Render renderizes the view
-func (view View) Render(writer http.ResponseWriter, data interface{}) {
+func (view View) Render(w http.ResponseWriter, data interface{}) {
 	vm := vm{Assets: view.assets, Layout: view.layoutData, Content: data}
-	view.template.Execute(writer, vm)
+	view.template.Execute(w, vm)
 }
