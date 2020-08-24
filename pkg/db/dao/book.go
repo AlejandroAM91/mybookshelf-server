@@ -7,8 +7,8 @@ import (
 	"github.com/AlejandroAM91/mybookshelf-server/pkg/shared/dto"
 )
 
-// BookCreate adds new book into the database
-func BookCreate(book dto.Book) {
+// CreateBook adds new book into the database
+func CreateBook(book dto.Book) {
 	db := db.Open()
 	defer db.Close()
 
@@ -19,8 +19,8 @@ func BookCreate(book dto.Book) {
 	}
 }
 
-// BookGetAll retrieve all books from database
-func BookGetAll() []dto.Book {
+// GetAllBooks retrieve all books from database
+func GetAllBooks() []dto.Book {
 	db := db.Open()
 	defer db.Close()
 	rows, _ := db.Query("select title, author from book")
