@@ -37,7 +37,7 @@ jobs:
         run: |
           docker buildx build \
             --target build \
-            --platform linux/amd64 \
+            --platform linux/amd64,linux/arm64,linux/arm/v7 \
             --output type=image,push=false \
             --file build/docker/dockerfile \
             --cache-from type=registry,ref=alejandroam91/build-cache:mybookshelf-server \
