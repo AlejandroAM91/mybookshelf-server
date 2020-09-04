@@ -2,7 +2,10 @@ FROM golang:alpine3.12 AS build
 
 WORKDIR /home/app
 
-COPY . .
+COPY go.mod go.sum ./
+COPY cmd/ cmd/
+COPY pkg/ pkg/
+COPY web/ web/
 
 RUN go build ./cmd/mybookshelf-server.go 
 
