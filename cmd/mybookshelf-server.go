@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	// server.Start(":80")
 	web := web.NewWeb()
 	web.SyncStart(":8080")
 }
