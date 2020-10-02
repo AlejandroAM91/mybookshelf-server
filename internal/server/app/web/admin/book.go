@@ -1,6 +1,11 @@
 package admin
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/AlejandroAM91/mybookshelf-server/internal/server/core/model"
+	"github.com/AlejandroAM91/mybookshelf-server/internal/server/core/services"
+)
 
 // BookController manages book calls
 type BookController struct{}
@@ -12,33 +17,20 @@ func CreateBookController() BookController {
 
 func (ctrl BookController) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
-	// case http.MethodGet:
-	// 	ctrl.get(w, r)
-	// case http.MethodPost:
-	// 	ctrl.post(w, r)
+	case http.MethodPost:
+		ctrl.post(w, r)
 	default:
 		http.Error(w, http.StatusText(http.StatusNotImplemented), http.StatusNotImplemented)
 	}
 }
 
-// Handler manages add book page calls
-// func Handler(w http.ResponseWriter, r *http.Request) {
-// 	switch r.Method {
-// 	case "POST":
-// 		post(w, r)
-// 	default:
-// 		w.WriteHeader(http.StatusNotImplemented)
-// 		w.Write([]byte(http.StatusText(http.StatusNotImplemented)))
-// 	}
-// }
+func (ctrl BookController) post(w http.ResponseWriter, r *http.Request) {
+	r.ParseForm()
 
-// func post(w http.ResponseWriter, r *http.Request) {
-// 	r.ParseForm()
+	title := r.FormValue("title")
+	author := r.FormValue("author")
+	book := model.Book{Title: title, Author: author}
+	services.CreateBook(book)
 
-// 	title := r.FormValue("title")
-// 	author := r.FormValue("author")
-// 	book := dto.Book{Title: title, Author: author}
-// 	dao.CreateBook(book)
-
-// 	http.Redirect(w, r, "/admin", http.StatusFound)
-// }
+	http.Redirect(w, r, "/admin", http.StatusFound)
+}
